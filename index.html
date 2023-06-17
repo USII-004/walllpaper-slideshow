@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallpaper Slide Show</title>
+</head>
+<body>
+  <img src="/images/1.jpg" id="image" style="height: 300px; width: 550px;" alt="Wallpaper">
+  <br>
+  <input type="button" value="Start Slideshow" onclick="startSlideShow()">
+  <input type="button" value="Stop Slideshow" onclick="stopSlideShow()">
+  <br>
+  <div id="display-image-number"></div>
+  
+  <script type="text/javascript">
+    let intervalId;
+
+    function startSlideShow() {
+      intervalId = setInterval(changeImage, 3000);
+    }
+
+    function stopSlideShow() {
+      clearInterval(intervalId);
+    }
+
+    function changeImage() {
+      let imageSrc = document.getElementById("image").getAttribute("src");
+      // let currentImageNumber = imageSrc.substring(imageSrc.lastIndexOf("/") + 1, imageSrc.lastIndexOf("/") + 2);
+      
+      // notice that the currentImageNumber will only obtains substring that are single digits 
+      // we will need to update the code later on to accept substrings that are double digits
+
+      let currentImageNumber = imageSrc.match(/\d+/);
+
+      if (currentImageNumber == 15) {
+        currentImageNumber = 0;
+      }
+      let newImage = "/images/" + (Number(currentImageNumber) + 1) + ".jpg";
+      document.getElementById("display-image-number").innerHTML = newImage;
+      document.getElementById("image").setAttribute("src", newImage);
+    }
+
+    // finally achieve the wallpaper slideshow by using regex to match the string and returning
+    // the value to currentImageNumber instead of using the substring attribute to select the number
+  </script>
+</body>
+</html>
