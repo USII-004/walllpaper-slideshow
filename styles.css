@@ -1,0 +1,35 @@
+*,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: whitesmoke;
+    margin: 0;
+  }
+
+  .container  {
+    margin: 3rem auto;
+    text-align: center;
+    padding: 1rem;
+    width: 40%;
+    background-color: grey;
+    border-radius: 2rem;
+  }
+
+  #display-image-message {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  input {
+    height: 3rem;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+  }
